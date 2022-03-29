@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorComponentPolicyTests", "RazorComponentPolicyTests\RazorComponentPolicyTests.csproj", "{C7FDD28D-7788-42E4-B0F0-13C1AB00AE64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7FDD28D-7788-42E4-B0F0-13C1AB00AE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FDD28D-7788-42E4-B0F0-13C1AB00AE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FDD28D-7788-42E4-B0F0-13C1AB00AE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FDD28D-7788-42E4-B0F0-13C1AB00AE64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
