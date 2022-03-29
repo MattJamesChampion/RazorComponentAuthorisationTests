@@ -1,22 +1,22 @@
 ﻿@page "/PolicyTester"
 <h1>Policy Tester</h1>
 
-<h2>@Policy.SuccessPolicy</h2>
-<AuthorizeView Policy="@Policy.SuccessPolicy">
+<h2>@Policy.UserPolicy</h2>
+<AuthorizeView Policy="@Policy.UserPolicy">
     <Authorized>
-        <p>Authorised, as expected!</p>
+        <p>Authorised (as expected)!</p>
     </Authorized>
     <NotAuthorized>
-        <p>Shouldn't see this, it's the success policy!</p>
+        <p>Not authorised. We shouldn't see this since we're a user!</p>
     </NotAuthorized>
 </AuthorizeView>
 
-<h2>@Policy.FailurePolicy</h2>
-<AuthorizeView Policy="@Policy.FailurePolicy">
+<h2>@Policy.AdminPolicy</h2>
+<AuthorizeView Policy="@Policy.AdminPolicy">
     <Authorized>
-        <p>Shouldn't see this, it's the failure policy!</p>
+        <p>Authorised. We're not an admin though, so we shouldn't see this!</p>
     </Authorized>
     <NotAuthorized>
-        <p>Not authorised, as expected!</p>
+        <p>Not authorised (as expected)!</p>
     </NotAuthorized>
 </AuthorizeView>
