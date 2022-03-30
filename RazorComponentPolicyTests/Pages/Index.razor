@@ -6,7 +6,7 @@
 <p>I've written <a href="https://mattjameschampion.com/">a blog post that goes with this solution</a> if you wanted more information!</p>
 
 <h1>Policies</h1>
-<p>There are two policies controlling access in this app: <code>SuccessPolicy</code> (always succeeds) and <code>FailurePolicy</code> (always fails). You can play around with these by looking in <code>Auth.cs</code> and changing whether they call <code>context.Succeed(requirement);</code> or <code>context.Fail();</code> to see what pages you get access to!</p>
+<p>There are two policies controlling access in this app: <code>@Policy.SuccessPolicy</code> (always succeeds) and <code>@Policy.FailurePolicy</code> (always fails). You can play around with these by looking in <code>Auth.cs</code> and changing whether they call <code>context.Succeed(requirement);</code> or <code>context.Fail();</code> to see what pages you get access to!</p>
 
 <h1>Pages</h1>
 <p>Each page has different <code>Authorization</code> rules applied to them, some directly and some inheriting from an <code>_Imports.razor</code> file in the directory.</p>
@@ -34,18 +34,35 @@
         <td>
             <a href="/FailurePolicy/PolicyChangedExplicitly">PolicyChangedExplicitly</a>
         </td>
-        <td>@Policy.SuccessPolicy</td>
-        <td>Explicitly specified in file</td>
-        <td>Overrides the rule applied in <code>_Imports.razor</code></td>
+        <td>
+            @Policy.SuccessPolicy <i>and</i> @Policy.FailurePolicy
+        </td>
+        <td>Explicitly specified in file (@Policy.SuccessPolicy) and <code>_Imports.razor</code> in the root of FailurePolicy (@Policy.FailurePolicy)</td>
+        <td>Shows the additive nature of explicit rules in a page combining with inherited rules from <code>_Imports.razor</code></td>
     </tr>
     <tr>
         <td>
-            <a href="/FailurePolicy/Subdirectory/Subdirectory1">Subdirectory1</a>/
-            <a href="/FailurePolicy/Subdirectory/Subdirectory2">Subdirectory2</a>
+            <a href="/FailurePolicy/PageDifferentToLocation">PageDifferentToLocation</a>
+        </td>
+        <td>@Policy.SuccessPolicy</td>
+        <td>Inherited from <code>_Imports.razor</code> in the root of SuccessPolicy</td>
+        <td>The URL implies that it would inherit from FailurePolicy, but because the actual file is located in the SuccessPolicy directory it inherits from that version of <code>_Imports.razor</code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/FailurePolicy/ChangedSubdirectory/Page">ChangedSubdirectoryPage</a>
         </td>
         <td>@Policy.SuccessPolicy</td>
         <td><code>_Imports.razor</code> in subdirectory</td>
-        <td>Overrides the rule applied in the top-level <code>_Imports.razor</code></td>
+        <td>The version of <code>_Imports.razor</code> in ChangedSubdirectory overrides the rule applied in the top-level <code>_Imports.razor</code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/FailurePolicy/UnchangedSubdirectory/Page">UnchangedSubdirectoryPage</a>
+        </td>
+        <td>@Policy.FailurePolicy</td>
+        <td>Top-level <code>_Imports.razor</code> in FailurePolicy</td>
+        <td>Since there are no changes to the declared <code>Authorization</code> rules, this page inherits from the top-level <code>_Imports.razor</code></td>
     </tr>
     <tr>
         <td>
@@ -57,19 +74,11 @@
     </tr>
     <tr>
         <td>
-            <a href="/SuccessPolicy/MultiplePolicies">MultiplePolicies</a>
+            <a href="/Anonymous">Anonymous</a>
         </td>
-        <td>@Policy.SuccessPolicy <i>and</i> @Policy.FailurePolicy</td>
-        <td>Explicitly specified in file</td>
-        <td>Applies multiple separate <code>Authorization</code> rules</td>
+        <td>None (allows for anonymous access)</td>
+        <td>Inherited from <code>_Imports.razor</code> in the root of Anonymous</td>
+        <td></td>
     </tr>
-        <tr>
-            <td>
-                <a href="/Anonymous">Anonymous</a>
-            </td>
-            <td>None (allows for anonymous access)</td>
-            <td>Inherited from <code>_Imports.razor</code> in the root of Anonymous</td>
-            <td></td>
-        </tr>
     </tbody>
 </table>

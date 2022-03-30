@@ -2,4 +2,4 @@
 @attribute [Authorize(Policy = Policy.SuccessPolicy)]
 
 <h1>Policy Changed Explicitly</h1>
-<p>You can see this even though it's in the FailurePolicy directory because we've overridden the rule for this specific page!</p>
+<p>You shouldn't be able to see this page even though it specifies @Policy.SuccessPolicy explicitly; it is still inheriting @Policy.FailurePolicy from <code>_Imports.razor</code> in the FailurePolicy directory!</p>
