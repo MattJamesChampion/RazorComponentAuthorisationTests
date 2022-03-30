@@ -1,0 +1,5 @@
+﻿@page "/FailurePolicy/PolicyChangedExplicitly"
+@attribute [Authorize(Policy = Policy.SuccessPolicy)]
+
+<h1>Policy Changed Explicitly</h1>
+<p>You can see this even though it's in the FailurePolicy directory because we've overridden the rule for this specific page!</p>

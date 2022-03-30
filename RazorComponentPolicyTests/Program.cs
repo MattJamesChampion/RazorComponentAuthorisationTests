@@ -9,18 +9,18 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddAuthorization(config =>
 {
-    config.AddPolicy(Policy.UserPolicy, policy =>
+    config.AddPolicy(Policy.SuccessPolicy, policy =>
     {
-        policy.Requirements.Add(new Requirements.UserPolicy());
+        policy.Requirements.Add(new Requirements.SuccessRequirement());
     });
-    config.AddPolicy(Policy.AdminPolicy, policy =>
+    config.AddPolicy(Policy.FailurePolicy, policy =>
     {
-        policy.Requirements.Add(new Requirements.AdminPolicy());
+        policy.Requirements.Add(new Requirements.FailureRequirement());
     });
 });
 
-builder.Services.AddSingleton<IAuthorizationHandler, Handlers.UserHandler>();
-builder.Services.AddSingleton<IAuthorizationHandler, Handlers.AdminHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, Handlers.SuccessHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, Handlers.FailureHandler>();
 
 var app = builder.Build();
 

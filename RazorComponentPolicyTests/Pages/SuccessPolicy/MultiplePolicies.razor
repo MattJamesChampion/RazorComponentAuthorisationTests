@@ -1,0 +1,7 @@
+﻿@page "/SuccessPolicy/MultiplePolicies"
+
+@attribute [Authorize(Policy = Policy.SuccessPolicy)]
+@attribute [Authorize(Policy = Policy.FailurePolicy)]
+
+<h1>Multiple Policies</h1>
+<p>You can only see this if you have both SuccessPolicy <i>and</i> FailurePolicy! Since adding an explicit <code>Authorize</code> attribute <i>overrides</i> the one found in <code>_Imports.razor</code> we need to specify both manually.</p>

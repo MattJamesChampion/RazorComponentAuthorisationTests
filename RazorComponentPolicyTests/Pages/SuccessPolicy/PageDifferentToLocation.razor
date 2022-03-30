@@ -1,0 +1,4 @@
+﻿@page "/FailurePolicy/PageDifferentToLocation"
+
+<h1>Page Different to Location</h1>
+<p>You can see this even though it <i>looks</i> like it's in the failure policy directory (if you check the URL); in actuality we've declared the page as <code>@@page "/FailurePolicy/PageDifferentToLocation"</code> even though it <i>actually</i> exists in the SuccessPolicy directory, meaning that it uses the <code>_Imports.razor</code> declared there!</p>

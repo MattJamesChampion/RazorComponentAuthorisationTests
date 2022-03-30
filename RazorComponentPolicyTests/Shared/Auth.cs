@@ -4,40 +4,40 @@ namespace RazorComponentPolicyTests.Shared;
 
 public static class Policy
 {
-    public const string UserPolicy = "UserPolicy";
-    public const string AdminPolicy = "AdminPolicy";
+    public const string SuccessPolicy = "SuccessPolicy";
+    public const string FailurePolicy = "FailurePolicy";
 }
 
 public static class Requirements
 {
-    public class UserPolicy : IAuthorizationRequirement
+    public class SuccessRequirement : IAuthorizationRequirement
     {
     }
 
-    public class AdminPolicy : IAuthorizationRequirement
+    public class FailureRequirement : IAuthorizationRequirement
     {
     }
 }
 
 public static class Handlers
 {
-    public class UserHandler : AuthorizationHandler<Requirements.UserPolicy>
+    public class SuccessHandler : AuthorizationHandler<Requirements.SuccessRequirement>
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-            Requirements.UserPolicy requirement)
+            Requirements.SuccessRequirement requirement)
         {
-            //We're a user so this will always succeed
+            //We always want this to succeed
             context.Succeed(requirement);
             return Task.CompletedTask;
         }
     }
 
-    public class AdminHandler : AuthorizationHandler<Requirements.AdminPolicy>
+    public class FailureHandler : AuthorizationHandler<Requirements.FailureRequirement>
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-            Requirements.AdminPolicy requirement)
+            Requirements.FailureRequirement requirement)
         {
-            //We're not an admin, so this will always fail
+            //This should always fail
             context.Fail();
             return Task.CompletedTask;
         }
