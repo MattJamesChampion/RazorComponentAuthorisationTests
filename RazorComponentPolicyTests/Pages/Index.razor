@@ -1,3 +1,75 @@
 @page "/"
 
 <PageTitle>Index</PageTitle>
+<h1>Introduction</h1>
+<p>Hello! I'm <a href="https://mattjameschampion.com/">Matt Champion</a> and this is my test site for trying out applying <code>Authorization</code> rules (such as policies) to multiple <code>.razor</code>/<code>.razor.cs</code> files (razor components) at once, overriding the rules in subdirectories and other edge cases!</p>
+<p>I've written <a href="https://mattjameschampion.com/">a blog post that goes with this solution</a> if you wanted more information!</p>
+
+<h1>Policies</h1>
+<p>There are two policies controlling access in this app: <code>SuccessPolicy</code> (always succeeds) and <code>FailurePolicy</code> (always fails). You can play around with these by looking in <code>Auth.cs</code> and changing whether they call <code>context.Succeed(requirement);</code> or <code>context.Fail();</code> to see what pages you get access to!</p>
+
+<h1>Pages</h1>
+<p>Each page has different <code>Authorization</code> rules applied to them, some directly and some inheriting from an <code>_Imports.razor</code> file in the directory.</p>
+<p>Here's a look at the different pages and what authorisation rules are in play!</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Page</th>
+        <th>Applied Policy</th>
+        <th>Policy Source</th>
+        <th>Why It's Interesting</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <a href="/FailurePolicy">FailurePolicy</a>
+        </td>
+        <td>@Policy.FailurePolicy</td>
+        <td>Inherited from <code>_Imports.razor</code> in the root of FailurePolicy</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/FailurePolicy/PolicyChangedExplicitly">PolicyChangedExplicitly</a>
+        </td>
+        <td>@Policy.SuccessPolicy</td>
+        <td>Explicitly specified in file</td>
+        <td>Overrides the rule applied in <code>_Imports.razor</code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/FailurePolicy/Subdirectory/Subdirectory1">Subdirectory1</a>/
+            <a href="/FailurePolicy/Subdirectory/Subdirectory2">Subdirectory2</a>
+        </td>
+        <td>@Policy.SuccessPolicy</td>
+        <td><code>_Imports.razor</code> in subdirectory</td>
+        <td>Overrides the rule applied in the top-level <code>_Imports.razor</code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/SuccessPolicy">SuccessPolicy</a>
+        </td>
+        <td>@Policy.SuccessPolicy</td>
+        <td>Inherited from <code>_Imports.razor</code> in the root of SuccessPolicy</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="/SuccessPolicy/MultiplePolicies">MultiplePolicies</a>
+        </td>
+        <td>@Policy.SuccessPolicy <i>and</i> @Policy.FailurePolicy</td>
+        <td>Explicitly specified in file</td>
+        <td>Applies multiple separate <code>Authorization</code> rules</td>
+    </tr>
+        <tr>
+            <td>
+                <a href="/Anonymous">Anonymous</a>
+            </td>
+            <td>None (allows for anonymous access)</td>
+            <td>Inherited from <code>_Imports.razor</code> in the root of Anonymous</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
