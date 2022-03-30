@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Razor Component Policy Tests</a>
+        <a class="navbar-brand" href="">Policy Tests</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,13 +29,31 @@
                         <span class="oi oi-key" aria-hidden="true"></span> Passwords
                     </NavLink>
                 </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Admin/SpecialCase">
+                        <span class="oi oi-star" aria-hidden="true"></span> Admin Special Case
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Admin/UserSpecialCase">
+                        <span class="oi oi-star" aria-hidden="true"></span> User Special Case
+                    </NavLink>
+                </div>
             </div>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="User">
                 <span class="oi oi-person" aria-hidden="true"></span> User
             </NavLink>
+            <div class="nav flex-column">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="User/MultiplePolicies">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Multiple Policies
+                    </NavLink>
+                </div>
+            </div>
         </div>
+
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="Anonymous">
                 <span class="oi oi-eye" aria-hidden="true"></span> Anonymous

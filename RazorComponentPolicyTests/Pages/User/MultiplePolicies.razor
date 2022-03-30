@@ -1,0 +1,7 @@
+﻿@page "/User/MultiplePolicies"
+
+@attribute [Authorize(Policy = Policy.UserPolicy)]
+@attribute [Authorize(Policy = Policy.AdminPolicy)]
+
+<h1>User Hub</h1>
+<p>You can only see this if you have both UserPolicy <i>and</i> AdminPolicy!</p>

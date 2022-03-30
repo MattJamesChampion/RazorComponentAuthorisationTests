@@ -1,0 +1,5 @@
+﻿@page "/Admin/SpecialCase"
+@attribute [Authorize(Policy = Policy.UserPolicy)]
+
+<h1>Admin Special Case</h1>
+<p>You can see this as a user because we've overridden the rule for this specific page!</p>
