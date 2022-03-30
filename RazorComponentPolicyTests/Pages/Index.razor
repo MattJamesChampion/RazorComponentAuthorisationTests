@@ -3,7 +3,7 @@
 <PageTitle>Index</PageTitle>
 <h1>Introduction</h1>
 <p>Hello! I'm <a href="https://mattjameschampion.com/">Matt Champion</a> and this is my test site for trying out applying <code>Authorization</code> rules (such as policies) to multiple <code>.razor</code>/<code>.razor.cs</code> files (razor components) at once, overriding the rules in subdirectories and other edge cases!</p>
-<p>I've written <a href="https://mattjameschampion.com/">a blog post that goes with this solution</a> if you wanted more information!</p>
+<p>I've written <a href="https://mattjameschampion.com/2022/03/31/applying-authorization-rules-to-a-folder-of-razor-components-blazor-pages/">a blog post that goes with this solution</a> if you wanted more information!</p>
 
 <h1>Policies</h1>
 <p>There are two policies controlling access in this app: <code>@Policy.SuccessPolicy</code> (always succeeds) and <code>@Policy.FailurePolicy</code> (always fails). You can play around with these by looking in <code>Auth.cs</code> and changing whether they call <code>context.Succeed(requirement);</code> or <code>context.Fail();</code> to see what pages you get access to!</p>
