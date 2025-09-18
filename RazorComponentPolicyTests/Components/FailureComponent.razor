@@ -1,0 +1,14 @@
+@attribute [Authorize(Policy = Policy.FailurePolicy)]
+<div style="border: 1px solid black">
+    <h3>@Policy.FailurePolicy Component</h3>
+
+    <p>This text is at the base of the component</p>
+    <AuthorizeView Policy="@Policy.FailurePolicy">
+        <Authorized>
+            This text is in the <code>Authorized</code> section of an <code>AuthorizeView</code>
+        </Authorized>
+        <NotAuthorized>
+            This text is in the <code>NotAuthorized</code> section of an <code>AuthorizeView</code>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>

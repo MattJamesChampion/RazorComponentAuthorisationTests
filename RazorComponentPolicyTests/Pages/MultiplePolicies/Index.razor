@@ -1,0 +1,7 @@
+﻿@page "/MultiplePolicies/Page"
+
+<h1>Multiple Policies Page</h1>
+<p>
+    Policies are additive when you specify multiple, meaning that you must pass <i>all</i> of them. Since we've specified <code>@Policy.SuccessPolicy</code> <i>and</i>
+    <code>@Policy.FailurePolicy</code> the result is that we can't access this page; we've failed one of the requirements!
+</p>

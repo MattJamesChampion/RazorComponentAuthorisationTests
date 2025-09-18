@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Policy Tests</a>
+        <a class="navbar-brand" href="/">Policy Tests</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,44 +10,80 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
+
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="FailurePolicy">
-                <span class="oi oi-x" aria-hidden="true"></span> FailurePolicy
+            <NavLink class="nav-link" href="/Anonymous/Page">
+                <span class="oi oi-eye" aria-hidden="true"></span> Anonymous Directory
             </NavLink>
             <div class="nav flex-column">
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="FailurePolicy/PolicyChangedExplicitly">
+                    <NavLink class="nav-link" href="/Anonymous/Page">
+                        <span class="oi oi-document" aria-hidden="true"></span> Anonymous Page
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/Anonymous/FailureInAnonymousFolderPage">
+                        <span class="oi oi-document" aria-hidden="true"></span> Failure in Anonymous Folder
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/FailurePolicy/Page">
+                <span class="oi oi-x" aria-hidden="true"></span> Failure Policy Directory
+            </NavLink>
+            <div class="nav flex-column">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/FailurePolicy/Page">
+                        <span class="oi oi-document" aria-hidden="true"></span> Failure Policy Page
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/FailurePolicy/PolicyChangedExplicitly">
                         <span class="oi oi-document" aria-hidden="true"></span> Policy Changed Explicitly
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="FailurePolicy/PageDifferentToLocation">
+                    <NavLink class="nav-link" href="/FailurePolicy/PageDifferentToLocation">
                         <span class="oi oi-document" aria-hidden="true"></span> Page Different to Location
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="FailurePolicy/ChangedSubdirectory/Page">
+                    <NavLink class="nav-link" href="/FailurePolicy/AnonymousSubdirectory/Page">
+                        <span class="oi oi-folder" aria-hidden="true"></span> Anonymous Subdirectory
+                    </NavLink>
+                    <div class="nav flex-column">
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="/FailurePolicy/AnonymousSubdirectory/Page">
+                                <span class="oi oi-document" aria-hidden="true"></span> Anonymous Subdirectory Page
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/FailurePolicy/ChangedSubdirectory/Page">
                         <span class="oi oi-folder" aria-hidden="true"></span> Changed Subdirectory
                     </NavLink>
                     <div class="nav flex-column">
                         <div class="nav-item px-3">
-                            <NavLink class="nav-link" href="FailurePolicy/ChangedSubdirectory/Page">
+                            <NavLink class="nav-link" href="/FailurePolicy/ChangedSubdirectory/Page">
                                 <span class="oi oi-document" aria-hidden="true"></span> Changed Subdirectory Page
                             </NavLink>
                         </div>
                     </div>
                 </div>
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="FailurePolicy/UnchangedSubdirectory/Page">
+                    <NavLink class="nav-link" href="/FailurePolicy/UnchangedSubdirectory/Page">
                         <span class="oi oi-folder" aria-hidden="true"></span> Unchanged Subdirectory
                     </NavLink>
                     <div class="nav flex-column">
                         <div class="nav-item px-3">
-                            <NavLink class="nav-link" href="FailurePolicy/UnchangedSubdirectory/Page">
+                            <NavLink class="nav-link" href="/FailurePolicy/UnchangedSubdirectory/Page">
                                 <span class="oi oi-document" aria-hidden="true"></span> Unchanged Subdirectory Page
                             </NavLink>
                         </div>
@@ -55,20 +91,28 @@
                 </div>
             </div>
         </div>
+
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="SuccessPolicy">
-                <span class="oi oi-check" aria-hidden="true"></span> SuccessPolicy
+            <NavLink class="nav-link" href="/SuccessPolicy/Page">
+                <span class="oi oi-eye" aria-hidden="true"></span> Success Policy Directory
+            </NavLink>
+            <div class="nav flex-column">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/SuccessPolicy/Page">
+                        <span class="oi oi-document" aria-hidden="true"></span> Success Policy Page
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/ComponentTester">
+                <span class="oi oi-cog" aria-hidden="true"></span> Component Tester
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Anonymous">
-                <span class="oi oi-eye" aria-hidden="true"></span> Anonymous
-            </NavLink>
-        </div>
-        
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="PolicyTester">
+            <NavLink class="nav-link" href="/PolicyTester">
                 <span class="oi oi-cog" aria-hidden="true"></span> Policy Tester
             </NavLink>
         </div>
@@ -76,13 +120,13 @@
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool _collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _collapseNavMenu = !_collapseNavMenu;
     }
 
 }

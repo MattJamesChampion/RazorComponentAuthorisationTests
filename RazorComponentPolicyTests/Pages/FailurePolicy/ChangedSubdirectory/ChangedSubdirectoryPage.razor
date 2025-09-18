@@ -1,4 +1,7 @@
 ﻿@page "/FailurePolicy/ChangedSubdirectory/Page"
 
 <h1>Changed Subdirectory Page</h1>
-<p>You can see this page because FailurePolicy/ChangedSubdirectory has a different authorisation rule declared in a separate <code>_Imports.razor</code>!</p>
+<p>
+    You can't see this page because while FailurePolicy/ChangedSubdirectory adds <code>@Policy.SuccessPolicy</code> (which would usually give us access), the <code>_Imports.razor</code> declaration in
+    the FailurePolicy folder is <i>additive</i>, meaning that we must pass both <code>@Policy.SuccessPolicy</code> <i>and</i> <code>@Policy.FailurePolicy</code>, which is impossible!
+</p>

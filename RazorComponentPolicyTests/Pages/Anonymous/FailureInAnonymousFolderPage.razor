@@ -1,0 +1,8 @@
+﻿@page "/Anonymous/FailureInAnonymousFolderPage"
+@attribute [Authorize(Policy = Policy.FailurePolicy)]
+
+<h1>Failure in Anonymous Folder</h1>
+<p>
+    Since this explicitly applies <code>@Policy.FailurePolicy</code> you'd expect that you couldn't see it, but because we have <code>AllowAnonymous</code> in <code>_Imports.razor</code> the
+    policies that we have specified don't apply; <code>AllowAnonymous</code> takes precedence!
+</p>

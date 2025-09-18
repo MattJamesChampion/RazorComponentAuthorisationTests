@@ -1,9 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Pages\FailurePolicy\AnonymousSubdirectory\AnonymousSubdirectoryPage.razor" />
+      <AdditionalFiles Include="Pages\FailurePolicy\AnonymousSubdirectory\_Imports.razor" />
+      <AdditionalFiles Include="Pages\MultiplePolicies\Index.razor" />
+      <AdditionalFiles Include="Pages\MultiplePolicies\PageDifferentToLocation.razor" />
+      <AdditionalFiles Include="Pages\MultiplePolicies\_Imports.razor" />
+    </ItemGroup>
 
 </Project>
